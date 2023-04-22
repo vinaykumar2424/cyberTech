@@ -1,0 +1,88 @@
+.app-Name{
+    font-size: 26px;
+    color: #0B2D36;
+    font-weight: bold;
+    font-family: 'Dancing Script', cursive;
+font-family: 'Playfair Display', serif;
+}
+.sidebar-tabs{
+    background-color: #0B2D36;
+    padding: 10px 20px;
+    margin: 15px 20px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.sidebar-tabs:hover{
+    background:linear-gradient(to left,#708492, #f88e245f);
+    transition: 1s;
+    border: 1px solid #f88e245f;
+    color: #0B2D36;
+}
+.InputDiv{
+    display: none;
+}
+.newTabInput{
+    margin: 15px 20px;
+    height: 50px;
+    
+}
+.AllTabs{
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    max-height:55vh;
+}
+.AllTabs::-webkit-scrollbar{
+    display: none;
+}
+.newTabAddBtn{
+    background-color: #0B2D36;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    margin: -15px 20px;
+}
+.newTabAddBtn:hover{
+    background:linear-gradient(to left,#708492, #f88e245f);
+    transition: 1s;
+    border: 1px solid #f88e245f;
+    color: #0B2D36;
+}
+.detailsBox{
+    background-color: #0B2D36;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    margin: -15px 20px;
+}
+.detailsBox:hover{
+    background:linear-gradient(to left,#708492, #f88e245f);
+    transition: 1s ease-in-out;
+    border: 1px solid #f88e245f;
+    color: #0B2D36;
+}
+.tableDiv{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-content: center;
+    margin: 50px;
+}
+.column{
+    border: 1px solid #0B2D36;
+}
+.column-values{
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    height: 70vh;
+}
+.column-values::-webkit-scrollbar{
+    display: none;
+}
+
+

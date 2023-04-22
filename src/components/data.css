@@ -1,0 +1,23 @@
+.Data {
+    background: linear-gradient(to left, #708492, #f88e245f);
+    height: 100vh;
+}
+
+.tabNameDetails {
+    position: absolute;
+    top: 3vh;
+    right: 10px;
+    background-color: #0B2D36;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+}
+.welcome {
+    position: relative;
+    top: 45vh;
+    font-size: 25px;
+    font-family: 'Dancing Script', cursive;
+    font-family: 'Playfair Display', serif;
+}
