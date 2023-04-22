@@ -24,8 +24,8 @@ const SideBar = () => {
     //     },
     // ]
     // console.log(currentUser.uid)
-    
-    
+
+
     // console.log((Object.entries(Tabs)).length)
     let len;
     const AddTabs = () => {
@@ -34,23 +34,25 @@ const SideBar = () => {
     const addTaskCompleted = async (e) => {
         e.preventDefault();
         let inputValue = e.target[0].value
-        
-        len = (Object.entries(Tabs)).length
-        // console.log("hello1=>" + len)
-        if(len !=0){
-            // console.log("hello2=>" + len)
-            for(let i=len;i<=len;i++){
+        if (Tabs) {
+            len = (Object.entries(Tabs)).length
+        }
+        else {
+            len = 0;
+        }
+        if (len != 0) {
+
+            for (let i = len; i <= len; i++) {
                 await updateDoc(doc(db, "usersData", currentUser.uid), {
                     [i]: inputValue
                 });
             }
         }
-        else if(len ==0){
-            await updateDoc(doc(db, "usersData", currentUser.uid), {
+        else {
+            await setDoc(doc(db, "usersData", currentUser.uid), {
                 [len]: inputValue
             });
-            // console.log("hello3=>" + len)
-            len +=1
+            len += 1
         }
         document.getElementsByClassName("InputDiv")[0].style.display = "none"
     }
@@ -66,29 +68,31 @@ const SideBar = () => {
         };
         currentUser.uid && getTabs();
     }, [currentUser.uid]);
-    let Data=[]
-    for(let i=0;i<(Object.entries(Tabs)).length;i++){
-        let tab = Object.entries(Tabs)[i]?.[0]
-        let valu = Object.entries(Tabs)[i]?.[1]
-        
-        Data[i]={
-            tab:valu
+    let Data = []
+    if (Tabs) {
+        for (let i = 0; i < (Object.entries(Tabs)).length; i++) {
+            let tab = Object.entries(Tabs)[i]?.[0]
+            let valu = Object.entries(Tabs)[i]?.[1]
+
+            Data[i] = {
+                tab: valu
+            }
         }
     }
 
 
     return (
         <div className="sidebarDiv">
-            <div className="newTabAddBtn" onClick={() => { signOut(auth) }} style={{position:"absolute",top:"30px",right:"10px",float:'right'}} >Logout</div>
+            <div className="newTabAddBtn" onClick={() => { signOut(auth) }} style={{ position: "absolute", top: "30px", right: "10px", float: 'right' }} >Logout</div>
             <p className="app-Name">Safe Locker</p>
             <div className="AllTabs" >
-            {Data?.map((tab, index) => (
-                <Link to="data" state={tab} key={index}style={{textDecoration:"none"}} >
-                    <div className="sidebar-tabs" >
-                    <div>{tab.tab}</div>
-                </div></Link>
-            ))
-            }
+                {Data?.map((tab, index) => (
+                    <Link to="data" state={tab} key={index} style={{ textDecoration: "none" }} >
+                        <div className="sidebar-tabs" >
+                            <div>{tab.tab}</div>
+                        </div></Link>
+                ))
+                }
             </div>
             <div className="sidebar-tabs" onClick={AddTabs}><span style={{ fontSize: "20px" }} >+</span> Add Data</div>
             <div className="InputDiv">
